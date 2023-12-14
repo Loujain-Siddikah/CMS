@@ -23,7 +23,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::get('/permissions',[PermissionController::class,'Api\PermissionController@getPermissions']);
+    Route::get('/permissions',[PermissionController::class,'getPermissions']);
     Route::post('/admin/add-editor',[AdminController::class,'addEditor']);
     Route::post('/admin/editors/update-editor/{id}',[AdminController::class,'updateEditor']);
     Route::delete('/admin/editors/delete-editor/{id}',[AdminController::class,'deleteEditor']);
