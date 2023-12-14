@@ -25,8 +25,9 @@ class UpdateEditorRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $this->id,
             'password' => 'nullable|min:6',
-            'permissions' => 'array',
-            'permissions.*' => 'exists:permissions,name',
+            'permissions' => 'nullable|array',
+            'permissions.*' => 'nullable|exists:permissions,name',
+
         ];
     }
 }
